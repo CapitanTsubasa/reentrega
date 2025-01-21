@@ -11,6 +11,10 @@ def index(request):
 def perfil(request):
     return render(request, "Main/perfil.html")
 
+def about(request):
+    return render(request, "Main/about.html")
+
+
 @login_required
 def editar_perfil(request):
     if request.method == "POST":

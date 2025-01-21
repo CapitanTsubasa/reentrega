@@ -38,9 +38,9 @@
                         <td><strong>Publicado</strong></td>
                     {% endif %}
                     <td>
-                        <a href="#" class="btn btn-sm btn=info">Detalle</a>
+                        <a href="{% url 'blog:post_detail' post.id %}" class="btn btn-sm btn=info">Detalle</a>
                         <a href="#" class="btn btn-sm btn=warning">Cambiar</a>
-                        <a href="#" class="btn btn-sm btn=danger">Eliminar</a>
+                        <a href="{% url 'blog:post_delete' post.id %}" class="btn btn-sm btn=danger">Eliminar</a>
                     </td>
                 </tr>
                 {% endfor %}

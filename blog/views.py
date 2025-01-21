@@ -1,7 +1,12 @@
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView, DeleteView
 from django.shortcuts import render, redirect
+from django.urls import reverse_lazy
 from .models import Post
 from .forms import PostForm
+
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib import messages
 
 
 def post_list(request):
@@ -38,3 +43,11 @@ def post_create(request):
     else:
         form = PostForm()
     return render(request, 'blog/post_create.html', context={'form': form})
+
+class PostDetailView(DetailView):
+    model = Post
+    
+class PostDeleteView(DeleteView):
+    model = Post
+    success_url = reverse_lazy("blog:post_list")
+    
