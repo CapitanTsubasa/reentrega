@@ -17,3 +17,20 @@ Asegúrate de tener instalado lo siguiente:
    ```bash
    git clone https://github.com/CapitanTsubasa/reentrega.git
    cd reentrega
+
+2. **Crear un entorno virtual**:
+
+python -m venv .venv
+.\.venv\Scripts\activate
+
+3. **Instalar dependencias**:
+
+pip install -r requirements.txt
+
+3. **Crear las migraciones y base de datos**:
+
+python manage.py migrate
+
+
+**Crear un superusuario**
+python manage.py createsuperuser
