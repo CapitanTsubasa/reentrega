@@ -5,13 +5,38 @@
 {% endblock title %}
 
 {% block content_title %}
-    Blog sobre Python
-{% endblock content_title %}
+<div class="container text-center">
+        <div class="row">
+            <div class="col">
+                Blog sobre Python
+            </div>
+        <div class="col">
+            {% if user.is_authenticated %}
+                <p>Bienvenido, {{ user.username }} | <a href="{% url 'Main:logout' %}">Cerrar sesión</a></p>
+            {% else %}
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                <a href="{% url 'Main:login' %}"><h2>Iniciar Sesión</h2></a>
+                </li>
+            </ul>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                <a href="{% url 'Main:register' %}"><h2>Registrarse</h2></a>
+                </li>
+            </ul>
+            {% endif %}
+            {% endblock content_title %}
+        </div>
+    </div>
+</div>
+
 
 {% block content %}
 <div class="container text-center mt-4">
     <h2>¡Bienvenidos a mi Blog sobre Python!</h2>
     <p>Un espacio para aprender, compartir ideas y crear contenido sobre Python.</p>
+
+    
 
     <div class="mt-3">
         <!-- Mostrar botones según el estado de autenticación -->

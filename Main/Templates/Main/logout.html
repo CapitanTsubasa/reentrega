@@ -1,0 +1,10 @@
+{% extends 'Main/base.html' %}
+
+{% block content %}
+    <!-- logout.html -->
+<h1>Has cerrado sesión con éxito</h1>
+<form method="post" action="{% url 'Main:logout' %}">
+    {% csrf_token %}
+    <button type="submit">Cerrar sesión</button>
+</form>
+{% endblock %}
